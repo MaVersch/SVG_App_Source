@@ -29,6 +29,7 @@ public class DecoratorGraphics2DLine extends DecoratorGraphics2D
 		}
 	}
 
+	@Override
 	public DecoratorGraphics2D newInstance(Shape base, Graphics2D g2d){
 		return new DecoratorGraphics2DLine(base, g2d);
 	}

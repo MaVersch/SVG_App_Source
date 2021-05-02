@@ -1,12 +1,14 @@
-package main.decorators.shapes;
+package main.decorators;
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
 import main.decorators.*;
+import main.decorators.shapes.*;
 import svg.element.shape.*;
 import svg.element.shape.Polygon;
 import svg.element.shape.Shape;
 import svg.element.shape.path.Path;
+
 import svg.element.style.*;
 
 /**

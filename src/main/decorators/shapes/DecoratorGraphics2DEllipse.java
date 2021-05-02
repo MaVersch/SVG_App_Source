@@ -35,6 +35,7 @@ public class DecoratorGraphics2DEllipse extends DecoratorGraphics2D
 		}
 	}
 
+	@Override
 	public DecoratorGraphics2D newInstance(Shape base, Graphics2D g2d){
 		return new DecoratorGraphics2DEllipse(base, g2d);
 	}
