@@ -44,6 +44,7 @@ public class DecoratorGraphics2DPolygon extends DecoratorGraphics2D
 		}
 	}
 
+	@Override
 	public DecoratorGraphics2D newInstance(Shape base, Graphics2D g2d){
 		return new DecoratorGraphics2DPolygon((Polygon)base, g2d);
 	}

@@ -2,8 +2,10 @@ package main.decorators;
 
 import java.awt.Graphics2D;
 
+import main.decorators.shapes.DecoratorGraphics2DCircle;
 import svg.element.BaseElement;
 import svg.element.Element;
+import svg.element.shape.Shape;
 import svg.element.style.Style;
 
 public class DecoratorGraphics2D extends Decorator
@@ -40,5 +42,13 @@ public class DecoratorGraphics2D extends Decorator
 		component.setBounds();
 		
 	}
+
+	/** Override this method in subclasses
+	 *
+	 * @param base
+	 * @param g2d
+	 * @return
+	 */
+	public  DecoratorGraphics2D newInstance(Shape base, Graphics2D g2d){ return null;}
 
 }
