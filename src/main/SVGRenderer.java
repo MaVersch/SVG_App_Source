@@ -7,6 +7,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
 import main.decorators.Decorator;
+import main.decorators.DecoratorFactory;
 import main.decorators.shapes.DecoratorGraphics2DCircle;
 import main.decorators.shapes.DecoratorGraphics2DEllipse;
 import main.decorators.shapes.DecoratorGraphics2DLine;
@@ -68,11 +69,29 @@ public class SVGRenderer
        	g2dImage.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
        	
        	g2d.setPaint(new Color(255, 127, 0));
-       	g2d.drawString("Draw SVG contents here.", 10, 20);
+       	//g2d.drawString("Draw SVG contents here.", 10, 20);
 
        	// **
        	// ** TODO: Draw SVG contents here.
        	// **
+		for (Element element : svg.elements())
+		{
+			DecoratorFactory factory=DecoratorFactory.get();
+			Shape shape = (Shape)element;
+			for (Style style : shape.styles())
+			{
+				switch (style.label()) {
+					case "stroke-width":
+						new DecoratorGraphics2DStrokeWidth((StrokeWidth) style, g2dImage).render();
+						break;
+				}
+			}
+			Decorator decorator = factory.makeDecorator(shape,g2d);
+
+
+
+			decorator.render();
+		}
    	   	
        	if (!view.zoom())
        	{
