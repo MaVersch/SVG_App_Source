@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import main.decorators.shapes.*;
 import svg.element.shape.*;
 import svg.element.shape.Polygon;
+import svg.element.shape.Shape;
 import svg.element.shape.path.Path;
 
 /**
@@ -56,7 +57,8 @@ public class DecoratorFactory {
     //-------------------------------------------------------------------------
 
     /**
-     * @param label Symbol type to make.
+     * @param base Symbol type to make.
+     * @param g2d Graphics2D
      * @return New symbol of specified type, with fields unset.
      */
     public Decorator makeDecorator(final Shape base, final Graphics2D g2d)
@@ -65,10 +67,10 @@ public class DecoratorFactory {
         for (DecoratorGraphics2D prototype : prototypes)
             if (prototype.component.label().equals((base.label()))){
                 return prototype.newInstance(base, g2d);  // return an unset clone
-    }
+        }
 
 
-        System.out.println("* Failed to find prototype for Style " + label + ".");
+        System.out.println("* Failed to find prototype for Decorator " + base.label() + ".");
         return null;
     }
 
