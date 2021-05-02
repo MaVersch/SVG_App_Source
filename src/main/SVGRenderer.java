@@ -78,6 +78,7 @@ public class SVGRenderer
 		{
 			DecoratorFactory factory=DecoratorFactory.get();
 			Shape shape = (Shape)element;
+			Decorator decorator = factory.makeDecorator(shape,g2dImage);
 			for (Style style : shape.styles())
 			{
 				switch (style.label()) {
@@ -86,8 +87,6 @@ public class SVGRenderer
 						break;
 				}
 			}
-			Decorator decorator = factory.makeDecorator(shape,g2d);
-
 
 
 			decorator.render();
