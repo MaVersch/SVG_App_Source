@@ -3,8 +3,10 @@ import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
 import main.decorators.*;
-import svg.element.shape.Circle;
+import svg.element.shape.*;
+import svg.element.shape.Polygon;
 import svg.element.shape.Shape;
+import svg.element.shape.path.Path;
 import svg.element.style.*;
 
 /**
@@ -17,13 +19,13 @@ public class DecoratorFactory {
     //List of concrete classes to be instantiated
     private final List<DecoratorGraphics2D> prototypes = new ArrayList<DecoratorGraphics2D>();
     {
-        prototypes.add(new DecoratorGraphics2DCircle(null, null));
-        prototypes.add(new DecoratorGraphics2DEllipse(null, null));
-        prototypes.add(new DecoratorGraphics2DLine(null, null));
-        prototypes.add(new DecoratorGraphics2DPath(null, null));
-        prototypes.add(new DecoratorGraphics2DPolygon(null, null));
-        prototypes.add(new DecoratorGraphics2DPolyline(null, null));
-        prototypes.add(new DecoratorGraphics2DRect(null, null));
+        prototypes.add(new DecoratorGraphics2DCircle(new Circle(), null));
+        prototypes.add(new DecoratorGraphics2DEllipse(new Ellipse(), null));
+        prototypes.add(new DecoratorGraphics2DLine(new Line(), null));
+        prototypes.add(new DecoratorGraphics2DPath(new Path(), null));
+        prototypes.add(new DecoratorGraphics2DPolygon(new Polygon(), null));
+        prototypes.add(new DecoratorGraphics2DPolyline(new Polygon(), null));
+        prototypes.add(new DecoratorGraphics2DRect(new Rect(), null));
     }
 
     // Singleton occurrence of this class
