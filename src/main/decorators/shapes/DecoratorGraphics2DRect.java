@@ -8,9 +8,9 @@ import svg.element.shape.Shape;
 
 public class DecoratorGraphics2DRect extends DecoratorGraphics2D
 {
-	public DecoratorGraphics2DRect(final Shape base, final Graphics2D g2d)
+	public DecoratorGraphics2DRect(final Rect base, final Graphics2D g2d)
 	{
-		super((Rect) base, null, g2d);
+		super( base, null, g2d);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class DecoratorGraphics2DRect extends DecoratorGraphics2D
 	}
 
 	public DecoratorGraphics2D newInstance(Shape base, Graphics2D g2d){
-		return new DecoratorGraphics2DCircle(base, g2d);
+		return new DecoratorGraphics2DRect((Rect)base, g2d);
 	}
 
 }

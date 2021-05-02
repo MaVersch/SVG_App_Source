@@ -11,9 +11,9 @@ import svg.element.shape.Shape;
 
 public class DecoratorGraphics2DPolygon extends DecoratorGraphics2D
 {
-	public DecoratorGraphics2DPolygon(final Shape base, final Graphics2D g2d)
+	public DecoratorGraphics2DPolygon(final Polygon base, final Graphics2D g2d)
 	{
-		super((Polygon) base, null, g2d);
+		super( base, null, g2d);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class DecoratorGraphics2DPolygon extends DecoratorGraphics2D
 	}
 
 	public DecoratorGraphics2D newInstance(Shape base, Graphics2D g2d){
-		return new DecoratorGraphics2DCircle(base, g2d);
+		return new DecoratorGraphics2DPolygon((Polygon)base, g2d);
 	}
 
 }

@@ -10,9 +10,9 @@ import svg.element.shape.Shape;
 
 public class DecoratorGraphics2DPolyline extends DecoratorGraphics2D
 {
-	public DecoratorGraphics2DPolyline(final Shape base, final Graphics2D g2d)
+	public DecoratorGraphics2DPolyline(final Polyline base, final Graphics2D g2d)
 	{
-		super((Polyline) base, null, g2d);
+		super( base, null, g2d);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class DecoratorGraphics2DPolyline extends DecoratorGraphics2D
 	}
 
 	public DecoratorGraphics2D newInstance(Shape base, Graphics2D g2d){
-		return new DecoratorGraphics2DCircle(base, g2d);
+		return new DecoratorGraphics2DPolyline((Polyline)base, g2d);
 	}
 
 }

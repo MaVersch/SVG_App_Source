@@ -1,13 +1,11 @@
-package main.decorators.shapes;
+package main.decorators;
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
-import main.decorators.*;
+import main.decorators.shapes.*;
 import svg.element.shape.*;
 import svg.element.shape.Polygon;
-import svg.element.shape.Shape;
 import svg.element.shape.path.Path;
-import svg.element.style.*;
 
 /**
  * Singleton class that holds a factory method for creating decorators for elements
@@ -24,7 +22,7 @@ public class DecoratorFactory {
         prototypes.add(new DecoratorGraphics2DLine(new Line(), null));
         prototypes.add(new DecoratorGraphics2DPath(new Path(), null));
         prototypes.add(new DecoratorGraphics2DPolygon(new Polygon(), null));
-        prototypes.add(new DecoratorGraphics2DPolyline(new Polygon(), null));
+        prototypes.add(new DecoratorGraphics2DPolyline(new Polyline(), null));
         prototypes.add(new DecoratorGraphics2DRect(new Rect(), null));
     }
 
@@ -66,7 +64,7 @@ public class DecoratorFactory {
 
         for (DecoratorGraphics2D prototype : prototypes)
             if (prototype.component.label().equals((base.label()))){
-            return prototype.newInstance(base, g2d);  // return an unset clone
+                return prototype.newInstance(base, g2d);  // return an unset clone
     }
 
 

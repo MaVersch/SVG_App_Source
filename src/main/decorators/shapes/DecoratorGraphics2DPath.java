@@ -10,9 +10,9 @@ import svg.element.shape.path.PathOp;
 
 public class DecoratorGraphics2DPath extends DecoratorGraphics2D
 {
-	public DecoratorGraphics2DPath(final Shape base, final Graphics2D g2d)
+	public DecoratorGraphics2DPath(final Path base, final Graphics2D g2d)
 	{
-		super((Path) base, null, g2d);
+		super( base, null, g2d);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class DecoratorGraphics2DPath extends DecoratorGraphics2D
 	}
 
 	public DecoratorGraphics2D newInstance(Shape base, Graphics2D g2d){
-		return new DecoratorGraphics2DCircle(base, g2d);
+		return new DecoratorGraphics2DPath((Path) base, g2d);
 	}
 
 }

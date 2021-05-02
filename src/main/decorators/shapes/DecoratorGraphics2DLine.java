@@ -8,9 +8,9 @@ import svg.element.shape.Shape;
 
 public class DecoratorGraphics2DLine extends DecoratorGraphics2D
 {
-	public DecoratorGraphics2DLine(final Shape base, final Graphics2D g2d)
+	public DecoratorGraphics2DLine(final Line base, final Graphics2D g2d)
 	{
-		super((Line) base, null, g2d);
+		super( base, null, g2d);
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class DecoratorGraphics2DLine extends DecoratorGraphics2D
 	}
 
 	public DecoratorGraphics2D newInstance(Shape base, Graphics2D g2d){
-		return new DecoratorGraphics2DLine(base, g2d);
+		return new DecoratorGraphics2DLine((Line)base, g2d);
 	}
 
 }
